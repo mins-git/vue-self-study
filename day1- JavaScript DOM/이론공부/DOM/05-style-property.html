@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>Lorem, ipsum dolor.</p>
+
+  <script>
+    const pTage = document.querySelector('p')
+
+    console.log(pTage.style)
+    pTage.style.color = 'crimson' // 키 값들을 하나하나 불러와서 바꿀 수 있음.
+    pTage.style.fontSize = '3rem' // fontSize라는 키로 들어가서 size변경 가능함
+    pTage.style.border = '2px solid black' // js를 통해서 style 속성을 들어간 후 css 값을 직접 넣을 수 있음
+    
+  </script>
+</body>
+
+</html>

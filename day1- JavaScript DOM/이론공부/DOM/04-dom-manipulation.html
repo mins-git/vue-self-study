@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <p>DOM 요소 조작</p>
+  </div>
+
+  <script>
+    // 생성
+    const h1Tag = document.createElement('h1')
+    // console.log(h1Tag) // <h1></h1> 출력됨
+    h1Tag.textContent = "제목"
+    console.log(h1Tag) // 실제로 <h1>제목</h1> 제목이 변경됨
+
+    // 추가
+    const divTag = document.querySelector('div') // div를 가져온 후
+    divTag.appendChild(h1Tag) // 특정 부모 Node의 자식중 마지막으로 삽입
+    console.log(divTag) // 실제로 div 안에 h1Tag가 들어가짐.
+
+    // 삭제
+    const pTage = document.querySelector('p') // p 태그를 선택한 후
+    divTag.removeChild(pTage) // p 태그를 삭제함.
+    
+  </script>
+</body>
+
+</html>
