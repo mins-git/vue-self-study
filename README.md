@@ -1,1 +1,1 @@
-# vue - self - study
+# vue - self -study
