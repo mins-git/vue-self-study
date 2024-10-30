@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .font-crimson {
+      color: crimson;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">Hover me!</h1>
+  <h2 class="sub-heading">Double Click me!</h2>
+  <p class="contents">Lorem ipsum dolor sit amet consectetur</p>
+
+  <script>
+    const randomTexts = [
+      'Lorem ipsum dolor sit amet consectetu',
+      'adipisicing elit. Repellendus delectus quam',
+      'similique quo ipsam maxime totam alias',
+      'quibusdam repudiandae voluptas dicta',
+      'voluptas voluptatibus exercitationem officiis'
+    ]
+
+    // 아래에 코드 작성
+    const ele = document.querySelector('h1.heading')
+    const ele1 = document.querySelector('h2.sub-heading')
+    const ele2 = document.querySelector('p.contents')
+
+    const newH1 = document.createElement('h1')
+
+
+    // console.log(ele.tagName)
+    ele.addEventListener('mouseover', (event) => {
+      // const a = event.target
+      // console.log(ele)
+      // console.log(ele.textContent)
+      ele.textContent = "I am being hober그러게?"
+  })
+
+    ele.addEventListener('mouseleave', (event)=>{
+      ele.textContent = "Hover me!"
+    })
+
+    ele1.addEventListener('dblclick', () =>{
+      ele1.classList.add('font-crimson')
+    })
+
+    ele2.addEventListener('wheel', () =>{
+      ele2.textContent = randomTexts[Math.floor(Math.random(randomTexts) * (randomTexts.length))]
+      // ele2.textContent = randomTexts[parseInt(Math.random(randomTexts) * (randomTexts.length))]
+
+    })
+
+
+  </script>
+</body>
+
+</html>
