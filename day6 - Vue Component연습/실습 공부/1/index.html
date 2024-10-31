@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+    <button v-on:click="toggleMessage">Change Message</button>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    const Vue_Application_instance = createApp({
+      setup() {
+        const message = ref("Hello,Vue 3!")
+        console.log(message.value)
+        const toggleMessage = () => {
+          message.value = message.value === "bye Vue 3!" ? "Hello, Vue 3!" : "bye Vue 3!"
+          console.log(message.value)
+        }
+
+        return{
+          message,
+          toggleMessage,
+        }
+      }
+    })
+
+    Vue_Application_instance.mount('#app')
+  </script>
+</body>
+
+</html>
