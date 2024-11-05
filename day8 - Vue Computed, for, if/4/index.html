@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Todo Application</h1>
+    <form @submit.prevent="addTodo">
+      <input type="text" v-model="newTodoText">
+      <input type="submit" value="Add">
+    </form>
+
+    <ul>
+      <li v-for="todo in todos" :key="todo.id">
+        <input type="checkbox" v-model="todo.isCompleted">
+        <span :class="{ 'is-completed': todo.isCompleted }">{{ todo.text }}</span>
+        <button @click="deleteTodo(todo.id)" >Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const newTodoText =ref('')
+        const todos = ref(
+          [
+            {id: '1', text: '할일', isCompleted: false},
+          ]
+        )
+
+        function addTodo() {
+          const newTodo = {
+            id : String(Date.now()),
+            text : newTodoText.value,
+            isCompleted: false,
+          }
+          todos.value.push(newTodo)
+          newTodoText.value = ""
+        }
+
+        function deleteTodo(id){
+          // todos.value = todos.value.filter(todo => todo.id !== id)
+
+          const index = todos.value.findIndex(todo => todo.id ===id)
+
+          if(index !== -1){
+            todos.value.splice(index, 1)
+          }
+
+        }
+
+        return { todos, addTodo, newTodoText, deleteTodo,}
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
